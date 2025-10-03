@@ -1,43 +1,44 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
+import { NavLink } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);    
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
+  const [isLoggedIn] = useState(false);   
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-// bg-[#434BE7]
-// text-[#28ebdb]
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 transition-colors duration-300 ${
-        scrolled ? "bg-[#434BE7] text-white text-md shadow-md" : "bg-white text-[#434BE7] text-md"
-      }`}
-    >
+    <nav className = "fixed top-0 left-0 w-full bg-gradient-to-br from-indigo-400 via-indigo-800 to-indigo-400 backdrop-blur-md shadow-md z-50">
       <div className="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
-        <Link to="/" className="text-xl hover:text-[#888dcf] font-bold">
+        <Link to="/" className="text-xl font-bold text-white">
           Learn With Jaya
         </Link>
         <ul className="flex items-center gap-6">
-          <li><Link to="/home" className = "font-bold hover:text-[#888dcf] ">Home</Link></li>
-          <li><Link to="/concepts" className = "hover:text-[#888dcf] font-bold">Concepts</Link></li>
-          <li><Link to="/projects" className = "hover:text-[#888dcf] font-bold">Projects</Link></li>
-          <li><Link to="/challenges" className = "hover:text-[#888dcf] font-bold">Challenges</Link></li>
-          <li><Link to="/about" className = "hover:text-[#888dcf] font-bold">About</Link></li>
-          <li><Link to="/contact" className = "hover:text-[#888dcf] font-bold">Contact</Link></li>
+          <li>
+          <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive
+              ? "font-bold text-teal-500"  
+              : "font-bold text-white hover:text-teal-500" 
+          }
+          >Home</NavLink></li>
+          <li><NavLink to="/concepts" className={({ isActive }) =>
+            isActive
+              ? "font-bold text-teal-500"  
+              : "font-bold text-white hover:text-teal-500" 
+          }>Concepts</NavLink></li>
+          <li><NavLink to="/projects" className={({ isActive }) =>
+            isActive
+              ? "font-bold text-teal-500"  
+              : "font-bold text-white hover:text-teal-500" 
+          }>Projects</NavLink></li>
+          <li><NavLink to="/challenges" className={({ isActive }) =>
+            isActive
+              ? "font-bold text-teal-500"  
+              : "font-bold text-white hover:text-teal-500" 
+          }>Challenges</NavLink></li>
           <li>
           {
             isLoggedIn ? (
@@ -49,13 +50,14 @@ const Header = () => {
             </Link>) : (
              <Link to="/login">
               <Button
-          className={`transition-colors duration-300 ${
-          scrolled
-            ? "bg-white text-[#434BE7] hover:bg-[#dfe1fc]"
-            : "bg-[#434BE7] text-white hover:bg-[#3737c0]"
-              }`}
-          >
-            Log In</Button>
+                className="relative overflow-hidden text-md px-6 py-3 border-2 border-white drop-shadow-lg shadow-white text-white 
+                          transition-all duration-300 
+                          hover:text-white hover:border-transparent
+                          bg-transparent"
+              >
+                <span className="absolute inset-0 bg-gradient-to-br from-teal-400 to-blue-500 opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
+                <span className="relative z-10">Login</span>
+              </Button>
             </Link>
             )
           }</li>

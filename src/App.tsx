@@ -10,12 +10,11 @@ function App() {
   return (
     <>
       <Header />
-      <main className="pt-20"> {/* adjust to navbar height */}
+      <main className="pt-20"> 
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/concepts" element={<Concepts />} />
           <Route path="/concepts/:slug" element={<ConceptDetail />} />
-          {/* other routes */}
         </Routes>
       </main>
     </>
