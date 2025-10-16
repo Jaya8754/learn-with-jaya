@@ -1,4 +1,4 @@
-import ConceptCard from "@/components/ConceptCard";
+import ConceptCard from "@/components/pages/ConceptCard";
 
 const contents = [
   {

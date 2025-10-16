@@ -9,22 +9,22 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Link } from "react-router-dom"
 import { Label } from "@/components/ui/label"
+import { Link } from "react-router-dom"
 
-export function Login() {
+export function Signup() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-500 via-sky-500 to-indigo-500 p-4">
       {/* min-h-screen ensures it takes full viewport height */}
       <Card className="w-full max-w-sm shadow-lg">
         <CardHeader>
-          <CardTitle>Login to your account</CardTitle>
+          <CardTitle>Create a new account</CardTitle>
           <CardDescription>
-            Enter your email below to login to your account
+            Enter your email below to create your account
           </CardDescription>
           <CardAction>
-            <Link to="/signup">
-            <Button variant="link">Sign Up</Button>
+            <Link to="/login">
+            <Button variant="link">Login</Button>
             </Link>
           </CardAction>
         </CardHeader>
@@ -59,7 +59,7 @@ export function Login() {
 
         <CardFooter className="flex-col gap-2">
           <Button type="submit" className="w-full">
-            Login
+            Sign Up
           </Button>
           <Button variant="outline" className="w-full">
             Login with Google

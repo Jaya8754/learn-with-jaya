@@ -4,6 +4,8 @@ import LandingPage from './components/pages/LandingPage'
 import './App.css'
 import Concepts from "./components/pages/Concepts";
 import ConceptDetail from "./components/pages/ConceptDetail";
+import {Login} from './components/Login/Signup/Login';
+import {Signup} from './components/Login/Signup/Signup';  
 
 function App() {
 
@@ -15,6 +17,8 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/concepts" element={<Concepts />} />
           <Route path="/concepts/:slug" element={<ConceptDetail />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
       </main>
     </>
